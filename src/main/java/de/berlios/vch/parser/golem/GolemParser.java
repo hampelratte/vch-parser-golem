@@ -185,11 +185,11 @@ public class GolemParser implements IWebParser {
 
             // parse the video url
             // TODO qualität konfigurierbar machen
-            String videoUri = getString(xml, "/golemderesult/data/medium/videourl");
+            String videoUri = getString(xml, "/golemderesult/data/high/videourl");
             page.setVideoUri(new URI(videoUri));
 
             // parse the thumbnail
-            String thumbUri = getString(xml, "/golemderesult/data/medium/image/url");
+            String thumbUri = getString(xml, "/golemderesult/data/high/image/url");
             page.setThumbnail(new URI(thumbUri));
         } catch (Exception e) {
             logger.log(LogService.LOG_ERROR, "Couldn't parse result", e);
