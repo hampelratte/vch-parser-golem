@@ -46,7 +46,7 @@ public class GolemParser implements IWebParser {
     protected static final String APP_KEY = "0eeb658b5b5ab1446cb771601e810df0";
     protected final String API_KEY = APP_KEY;
 
-    protected final String BASE_URL = "http://api.golem.de/api/video";
+    protected final String BASE_URL = "https://api.golem.de/api/video";
     protected final String URL_PARAMS = "/?key=" + API_KEY + "&format=xml";
     protected final String LATEST_URL = BASE_URL + "/latest/50" + URL_PARAMS;
     protected final String POPULAR_URL = BASE_URL + "/top/50" + URL_PARAMS;
@@ -184,8 +184,10 @@ public class GolemParser implements IWebParser {
             page.setPublishDate(Calendar.getInstance());
 
             // parse the video url
-            // TODO qualität konfigurierbar machen
             String videoUri = getString(xml, "/golemderesult/data/high/videourl");
+            if(videoUri.startsWith("http:")) {
+                videoUri = videoUri.replace("http:", "https:");
+            }
             page.setVideoUri(new URI(videoUri));
 
             // parse the thumbnail
