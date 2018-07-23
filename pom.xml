@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>parser.golem</artifactId>
     <packaging>bundle</packaging>
-    <version>1.1.1-SNAPSHOT</version>
+    <version>1.1.1</version>
     <name>VCH Golem Parser</name>
     <description>Parser for the Golem Videos. Uses api.golem.de to retrieve the videos from video.golem.de</description>
 
